@@ -1,7 +1,15 @@
 
 # This function will break up words for us.
+# (/\.?\s+/) possible way to flag the period.
 def break_words(stuff)
     words = stuff.split(' ')
+    counter = 0
+    words.each do |word| 
+         if word["."]
+            words[counter] = word.chomp(".")
+        end   
+        counter = counter + 1
+    end
     return words
 end
 
@@ -10,16 +18,16 @@ def sort_words(words)
     return words.sort()
 end
 
-# Prints the first word after popping it off.
+# Prints the first word after shifting it off.
 def puts_first_word(words)
-    word = words.pop(0)
+    word = words.shift()
     puts word
 end
 
 # Prints the last word after popping it off.
 def puts_last_word(words)
     word = words.pop()
-    puts word
+    puts word.chomp(".")
 end
 
 # Takes in a full sentence and returns the sorted words.
@@ -44,7 +52,7 @@ end
 
 
 puts "Let's practice everything."
-puts 'You\'d need to know \'bout escapes with \\ that do \n newlines and \t tabs.'
+puts "You\'d need to know \'bout escapes with \\ that do \n newlines and \t tabs."
 
 poem = <<POEM
 \tThe lovely world
@@ -60,8 +68,8 @@ puts "--------------"
 puts poem
 puts "--------------"
 
-five = 10 - 2 + 3 - 5
-puts "This should be five: %s" % five
+five = 10 - 2 + 3 - 6
+puts "This should be five: %d" % five
 
 def secret_formula(started)
     jelly_beans = started * 500
@@ -72,6 +80,8 @@ end
 
 start_point = 10000
 jelly_beans, jars, crates = secret_formula(start_point)
+
+#Wayne - the "correct" program in exercise 24 designated the following string interpolations as %d's, but shouldn't they be %s's? as below?
 
 puts "With a starting point of: %d" % start_point
 puts "We'd have %d beans, %d jars, and %d crates." % [jelly_beans, jars, crates]
@@ -91,8 +101,10 @@ puts_first_word(words)
 puts_last_word(words)
 puts_first_word(sorted_words)
 puts_last_word(sorted_words)
-sorted_words = ex25.sort_sentence(sentence)
+sorted_words = sort_sentence(sentence)
 print sorted_words
+
+puts
 
 puts_first_and_last(sentence)
 

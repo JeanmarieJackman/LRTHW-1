@@ -1,5 +1,5 @@
 puts "Seconds: "
-seconds = STDIN.gets.chomp().to_f
+seconds = gets.chomp().to_f
 
 
 minutes = seconds / 60
