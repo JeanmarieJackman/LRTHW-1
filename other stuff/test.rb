@@ -1,21 +1,5 @@
-prompt = "> "
-counter = 0
+authors = {"Charles Dickens" => "1870", "William Thackeray" => "1863", "Anthony Trollope" => "1882", "Gerard Manley Hopkins" => "1889"}
 
-
-def assignment_number_input()
-	assignment_number = 0
-	
-	puts "Input number of different types of assignments."
-	print prompt
-
-	if gets.chomp().to_i? == true
-	assignment_number = gets.chomp()
-	
-	else
-		puts "Please put in the format of an integer, ex. 4."
-	end
-
+authors.each do |author, year|
+  puts author.to_s + " died in " + year.to_s
 end
-
-assignment_number_input()
-puts assignment_number
