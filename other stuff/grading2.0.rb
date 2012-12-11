@@ -129,7 +129,7 @@ class Grading
 	end
 #works
 	def student_number_input()
-		puts "How many students are in your class"
+		puts "How many students are in your class?"
 		prompt()
 		input = gets()
 
